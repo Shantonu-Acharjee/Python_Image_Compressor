@@ -13,8 +13,13 @@ for i in range(0, a):
     image = PIL.Image.open(PhotoDir+Photos[i])
     width, height = image.size
     print(Photos[i], '|',width,',', height, '|')
-    image = image.resize((width, height), PIL.Image.ANTIALIAS)
-    image.save(PhotoDir+'Compress Photo/'+Photos[i])
+    persentage = height / width
+
+    if width > 800:
+        width = 800
+        
+    image = image.resize((width, int(width*persentage)), PIL.Image.ANTIALIAS)
+    image.save(PhotoDir+'Compress Photo/'+Photos[i]) #, optimize=True, quality= 50
 
 
 
