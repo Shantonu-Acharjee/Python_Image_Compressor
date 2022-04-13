@@ -10,29 +10,20 @@ a = len(Photos)
 os.makedirs(PhotoDir+'Compress Photo')
 
 for i in range(0, a):
-    image = PIL.Image.open(PhotoDir+Photos[i])
-    width, height = image.size
-
-    if width > 800:
-
-        fixed_Width = 800
-        height_percent = fixed_Width / width
-        
-        with_size = int(width) * float(height_percent)
-        image = image.resize((with_size, fixed_height), PIL.Image.ANTIALIAS)
-        image.save(PhotoDir+'Compress Photo/'+Photos[i])
+    try:
+        image = PIL.Image.open(PhotoDir+Photos[i])
+        width, height = image.size
         print(Photos[i], '|',width,',', height, '|')
-        continue
+        persentage = height / width
 
+        if width > 800:
+            width = 800
+            
+        image = image.resize((width, int(width*persentage)), PIL.Image.ANTIALIAS)
+        image.save(PhotoDir+'Compress Photo/'+Photos[i]) #, optimize=True, quality= 50
 
-
-
-
-
-    print(Photos[i], '|',width,',', height, '|')
-    image = image.resize((width, height), PIL.Image.ANTIALIAS)
-    image.save(PhotoDir+'Compress Photo/'+Photos[i])
-
+    except:
+        print('Error ---> ',Photos[i])
 
 
 
