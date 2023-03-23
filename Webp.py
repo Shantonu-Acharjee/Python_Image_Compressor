@@ -21,7 +21,7 @@ CompressImagePath = os.listdir(PhotoDir+'Compress Photo' + '/')
 for i in range(0, a):
     try:
 
-        if '.jpeg' in Photos[i] or '.JPEG' in Photos[i] or  '.jpg' in Photos[i] or '.JPG' in Photos[i] or '.png' in Photos[i] or '.PNG' in Photos[i] or '.gif' in Photos[i] or '.GIF' in Photos[i] or '.raw' in Photos[i] or '.RAW' in Photos[i] or '.svg' in Photos[i] or '.SVG' in Photos[i] :
+        if '.webp' in Photos[i] or '.jpeg' in Photos[i] or '.JPEG' in Photos[i] or  '.jpg' in Photos[i] or '.JPG' in Photos[i] or '.png' in Photos[i] or '.PNG' in Photos[i] or '.gif' in Photos[i] or '.GIF' in Photos[i] or '.raw' in Photos[i] or '.RAW' in Photos[i] or '.svg' in Photos[i] or '.SVG' in Photos[i] :
             
             image = PIL.Image.open(PhotoDir+Photos[i])
 
@@ -40,8 +40,8 @@ for i in range(0, a):
             persentage = height / width
 
 
-            #if width > 800:
-            #   width = 800
+            if width > 310:
+               width = 310
             #print(Photos[i][0: Photos[i].find('.')])
 
 
